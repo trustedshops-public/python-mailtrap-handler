@@ -23,7 +23,7 @@ Clean the inbox:
 ```python
 MailTrapHandler.clean_inbox(inbox)
 ```
-Delet target mail:
+Delete target mail:
 ```python
 MailTrapHandler.delete_mail(inbox, email, title="Some Title here")
 #default value for title is None
