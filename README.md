@@ -9,7 +9,7 @@ mailtrap = MailTrapHandler(TOKEN)
 Get mail id:
 ```python
 #default value for title is None
-list_of_ids = MailTrapHandler.get_mail_id(inbox, email, title="SOME TEXT")
+list_of_ids = MailTrapHandler.get_mail_id(inbox, email, title="Some Title here")
 #returns a list of found mails ids
 ```
 Get mail html content:
