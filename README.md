@@ -41,9 +41,8 @@ title = "Oy! Congrats on getting Your new T-shirt"
 #creating mailtraphandler object
 mailtrap = MailTrapHandler(token)
 #getting the html content
-mail_id = mailtrap.get_mail(inbox, email, title=title, 10)
-#this will log the html conent:
-print(mail_id[0])
+mails = mailtrap.get_mail(inbox, email, title=title, 10)
+#we do now whatever we need with the recieved mails
 #and now we delete this mail
 mailtrap.delete_mail(inbox, email, title=title)
 #you know what let's just delete every mail in the inbox
