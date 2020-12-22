@@ -3,7 +3,10 @@ Implimentation for mailtrap basic functionalities using python
 ### Usage
 
 ```python
+from mailtrap_handler import MailTrapHandler
+
 mailtrap = MailTrapHandler(TOKEN)
+#then do what you need with the mailtrap object
 ```
 ### Functions
 Get mail id:
