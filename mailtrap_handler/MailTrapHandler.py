@@ -47,9 +47,9 @@ class MailTrapHandler:
         patch(f"{self.__base_url}/inboxes/{inbox}/clean",
               headers=self.__headers)
 
-    def delete_mail(self, inbox, email, title=None):
+    def delete_mails_by_email(self, inbox, email, title=None):
         # detecting the mail id
         mails_ids_list = self.get_mail_id(inbox, email, title)
         for mail_id in mails_ids_list:
-            delete(f"{self.__base_url}/inboxes/{inbox}/messages/{mail_id}")
-        return
+            query = f"{self.__base_url}/inboxes/{inbox}/messages/{mail_id}"
+            delete(query,headers=self.__headers)
