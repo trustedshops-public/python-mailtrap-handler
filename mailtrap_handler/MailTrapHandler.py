@@ -26,17 +26,14 @@ class MailTrapHandler:
         return mails_id_list
 
     def get_mail(self, inbox, email, title=None, waiting_time=0):
+        mails_text = list()
         # detecting the mail id
         mails_ids_list = poll(
             lambda: self.get_mail_id(inbox, email, title),
             timeout=waiting_time,
             step=0.5
         )
-        # in case no mail id was found then abort
-        if len(mails_ids_list) == 0:
-            return None
         # waiting for mail to come
-        mails_text = list()
         for mail_id in mails_ids_list:
             r = get(
                 f"{self.__base_url}/inboxes/{inbox}/messages/{mail_id}/body.html", headers=self.__headers)
