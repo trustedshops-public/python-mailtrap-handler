@@ -3,13 +3,16 @@ Implimentation for mailtrap basic functionalities using python
 ### Usage
 
 ```python
+from mailtrap_handler import MailTrapHandler
+
 mailtrap = MailTrapHandler(TOKEN)
+#then do what you need with the mailtrap object
 ```
 ### Functions
 Get mail id:
 ```python
 #default value for title is None
-list_of_ids = MailTrapHandler.get_mail_id(inbox, email, title="SOME TEXT")
+list_of_ids = MailTrapHandler.get_mail_id(inbox, email, title="Some Title here")
 #returns a list of found mails ids
 ```
 Get mail html content:
@@ -23,7 +26,7 @@ Clean the inbox:
 ```python
 MailTrapHandler.clean_inbox(inbox)
 ```
-Delet target mail:
+Delete target mail:
 ```python
 MailTrapHandler.delete_mail(inbox, email, title="Some Title here")
 #default value for title is None
@@ -41,9 +44,8 @@ title = "Oy! Congrats on getting Your new T-shirt"
 #creating mailtraphandler object
 mailtrap = MailTrapHandler(token)
 #getting the html content
-mail_id = mailtrap.get_mail(inbox, email, title=title, 10)
-#this will log the html conent:
-print(mail_id[0])
+mails = mailtrap.get_mail(inbox, email, title=title, 10)
+#we do now whatever we need with the recieved mails
 #and now we delete this mail
 mailtrap.delete_mail(inbox, email, title=title)
 #you know what let's just delete every mail in the inbox
