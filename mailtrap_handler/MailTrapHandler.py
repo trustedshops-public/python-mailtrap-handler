@@ -25,14 +25,20 @@ class MailTrapHandler:
                     mails_id_list.append(mail["id"])
         return mails_id_list
 
-    def get_mail(self, inbox, email, title=None, waiting_time=0):
+    def get_mail(self, inbox, email, title=None, waiting_time=1):
         mails_text = list()
+        mails_ids_list = list();
         # detecting the mail id
-        mails_ids_list = poll(
-            lambda: self.get_mail_id(inbox, email, title),
-            timeout=waiting_time,
-            step=0.5
-        )
+        try:
+            buffer_list = poll(
+                lambda: self.get_mail_id(inbox, email, title),
+                timeout=waiting_time,
+                step=0.5
+            )
+            if buffer_list!=None:
+                mails_ids_list = buffer_list
+        except:
+            print("Something didn't work, probably didn'T recieve any results")
         # waiting for mail to come
         for mail_id in mails_ids_list:
             r = get(

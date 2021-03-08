@@ -1,4 +1,6 @@
 from MailTrapHandler import MailTrapHandler
+from os import environ
 
-mth = MailTrapHandler("***REMOVED***")
-mth.delete_mail(224157, "cm_-c2c95e+20210301120352@inbox.mailtrap.io")
+mth = MailTrapHandler(environ["token"])
+result = mth.get_mail(environ["inbox"], "cm_-c2c95e+20210301124d206@inbox.mailtrap.io", waiting_time=10)
+print(result)
