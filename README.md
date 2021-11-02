@@ -1,5 +1,12 @@
 # mailtrap-handler
 Implimentation for mailtrap basic functionalities using python
+
+### Requirements
+All you need is Python version 3.6 or above
+
+### Installation
+```pip3 -q install "mailtrap-handler @ git+ssh://git@github.com/trustedshops/mailtrap-handler.git```
+
 ### Usage
 
 ```python
@@ -12,7 +19,7 @@ mailtrap = MailTrapHandler(TOKEN)
 Get mail id:
 ```python
 #default value for title is None
-list_of_ids = MailTrapHandler.get_mail_id(inbox, email, title="Some Title here")
+list_of_ids = mailtrap.get_mail_id(inbox, email, title="Some Title here")
 #returns a list of found mails ids
 ```
 Get mail html content:
