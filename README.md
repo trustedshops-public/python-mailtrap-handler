@@ -1,5 +1,5 @@
 # mailtrap-handler
-Implimentation for mailtrap basic functionalities using python
+Implementation for mailtrap basic functionalities using python
 
 ### Requirements
 All you need is Python version 3.6 or above
