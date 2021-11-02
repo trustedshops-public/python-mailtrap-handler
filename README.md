@@ -5,7 +5,7 @@ Implementation for mailtrap basic functionalities using python
 All you need is Python version 3.6 or above
 
 ### Installation
-```pip3 -q install "mailtrap-handler @ git+ssh://git@github.com/trustedshops/mailtrap-handler.git```
+```pip3 -q install "mailtrap-handler @ git+ssh://git@github.com/trustedshops-public/mailtrap-handler.git```
 
 ### Usage
 
