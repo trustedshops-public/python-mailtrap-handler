@@ -1,0 +1,59 @@
+version: 2.1
+
+executors:
+  python:
+    docker:
+      - image: cimg/python:3.10.0
+  node:
+    docker:
+      - image: cimg/node:lts
+
+jobs:
+  test:
+    executor: python
+    steps:
+      - checkout
+      - run:
+          name: Check installing library works
+          command: python3 ./setup.py install --user
+  build_gh_pages:
+    executor: node
+    steps:
+      - checkout
+      - run:
+          name: Install python
+          command: |
+            sudo apt update
+            sudo apt install -y python3 python3-pip
+      - run:
+          name: Install pdoc
+          command: pip3 install pdoc3
+      - run:
+          name: Build html documentation
+          command: |
+            mkdir gh-pages
+            pdoc3 mailtrap_handler -o gh-pages --html --force
+            echo '<meta http-equiv="refresh" content="0; URL=https://mailtrap-handler.trustedshops-public.github.io/mailtrap_handler">' > gh-pages/index.html
+
+      - run:
+          name: Publish github pages
+          command: |
+            git config user.email "no-reply@trustedshops.com"
+            git config user.name "trustedshops-public-cns-bot"
+            npx gh-pages@2.0.1 --dist gh-pages/ --message "docs: Update github pages [ci skip]"
+
+workflows:
+  version: 2
+  continuous:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /.*/
+      - build_gh_pages:
+          filters:
+            branches:
+              only:
+                - main
+          requires:
+            - test
