@@ -4,12 +4,12 @@ from os import environ
 with open("requirements.txt", "r") as requirements_file:
     requirements = requirements_file.readlines()
 
-with open("README.md","r") as readme_file:
+with open("README.md", "r") as readme_file:
     readme = "\n".join(readme_file.readlines())
 
 setup(
     name='mailtrap_handler',
-    version=environ['VERSION'],
+    version=environ.get("VERSION", "snapshot"),
     author="Said Tahali (trusta)",
     url="https://github.com/trustedshops-public/mailtrap-handler",
     include_package_data=True,
