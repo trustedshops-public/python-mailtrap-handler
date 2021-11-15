@@ -1,15 +1,21 @@
 from setuptools import setup, find_packages
+from os import environ
 
 with open("requirements.txt", "r") as requirements_file:
     requirements = requirements_file.readlines()
 
+with open("README.md","r") as readme_file:
+    readme = "\n".join(readme_file.readlines())
+
 setup(
     name='mailtrap_handler',
-    version="0.0.1",
+    version=environ['VERSION'],
     author="Said Tahali (trusta)",
     url="https://github.com/trustedshops-public/mailtrap-handler",
     include_package_data=True,
     packages=find_packages(),
     install_requires=requirements,
-    python_requires='>3.8.0'
+    python_requires='>3.8.0',
+    long_description=readme,
+    long_description_content_type='text/markdown'
 )

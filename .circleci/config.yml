@@ -8,6 +8,7 @@ executors:
     docker:
       - image: cimg/node:lts
 
+
 jobs:
   test:
     executor: python
@@ -16,7 +17,43 @@ jobs:
       - run:
           name: Check installing library works
           command: python3 ./setup.py install --user
-  build_gh_pages:
+  pip-publish:
+    executor: python
+    parameters:
+      repository:
+        type: string
+        description: Name of the repository to publish to
+    steps:
+      - checkout
+      - run:
+          name: Set version
+          command: |
+            if [ ! -z "$CIRCLE_TAG" ]
+            then
+              echo "Building for tag"
+              version="${CIRCLE_TAG}"
+            else
+              echo "Building for snapshot"
+              last_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+              short_git_hash=$(echo $CIRCLE_SHA1 | cut -c -7)
+              version="${last_tag}-${short_git_hash}"
+            fi
+
+            echo "export VERSION=${version}" >> $BASH_ENV
+      - run:
+          name: Install dependencies
+          command: |
+            pip3 install -r requirements.txt
+            pip3 install -r requirements-dev.txt
+      - run:
+          name: Build package
+          command: |
+            python3 setup.py sdist bdist_wheel
+      - run:
+          name: Upload package
+          command: |
+            twine upload --repository <<parameters.repository>> dist/*
+  build-gh-pages:
     executor: node
     steps:
       - add_ssh_keys:
@@ -35,6 +72,7 @@ jobs:
           name: Install dependencies
           command: |
             pip3 install -r requirements.txt
+            pip3 install -r requirements-dev.txt
       - run:
           name: Build html documentation
           command: |
@@ -57,10 +95,22 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - build_gh_pages:
+      - pip-publish:
+          name: pip-publish-testpypi
+          repository: testpypi
           filters:
             branches:
               only:
                 - main
           requires:
             - test
+          context:
+            - pip-test
+      - build-gh-pages:
+          filters:
+            branches:
+              only:
+                - main
+          requires:
+            - test
+            - pip-publish-testpypi

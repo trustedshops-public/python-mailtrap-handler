@@ -1,5 +1,4 @@
-mailtrap-handler
-===
+# mailtrap-handler
 
 Implementation for MailTrap basic functionalities using Python.
 
