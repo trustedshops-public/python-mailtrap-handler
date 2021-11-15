@@ -5,7 +5,7 @@ with open("requirements.txt", "r") as requirements_file:
     requirements = requirements_file.readlines()
 
 with open("README.md", "r") as readme_file:
-    readme = "\n".join(readme_file.readlines())
+    readme = "".join(readme_file.readlines())
 
 setup(
     name='mailtrap_handler',
