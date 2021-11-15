@@ -29,6 +29,10 @@ jobs:
           name: Install pdoc
           command: pip3 install pdoc3
       - run:
+          name: Install dependencies
+          command: |
+            pip3 install -r requirements.txt
+      - run:
           name: Build html documentation
           command: |
             mkdir gh-pages
