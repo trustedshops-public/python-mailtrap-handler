@@ -15,6 +15,8 @@ pip3 -q install "mailtrap-handler @ git+ssh://git@github.com/trustedshops-public
 
 ## Usage
 
+For [dedicated documentation click here](https://trustedshops-public.github.io/mailtrap-handler/mailtrap_handler)
+
 ```python
 from mailtrap_handler import MailTrapHandler
 
