@@ -1,4 +1,8 @@
 # mailtrap-handler
+[![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/trustedshops-public/mailtrap-handler/blob/main/LICENSE)
+[![pre-commit](https://img.shields.io/badge/%E2%9A%93%20%20pre--commit-enabled-success)](https://pre-commit.com/)
+[![CircleCI](https://circleci.com/gh/trustedshops-public/mailtrap-handler/tree/main.svg?style=shield)](https://circleci.com/gh/trustedshops-public/mailtrap-handler/tree/main)
+[![PyPI version](https://badge.fury.io/py/mailtrap-handler.svg)](https://pypi.org/project/mailtrap-handler)
 
 Implementation for MailTrap basic functionalities using Python.
 
@@ -9,7 +13,7 @@ All you need is Python version 3.6 or above
 ## Installation
 
 ```sh
-pip3 -q install "mailtrap-handler @ git+ssh://git@github.com/trustedshops-public/mailtrap-handler.git
+pip3 install mailtrap-handler
 ```
 
 ## Usage
