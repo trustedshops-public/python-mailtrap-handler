@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  semantic-release: trustedshops-public/semantic-release@1.2.0
+
 executors:
   python:
     docker:
@@ -105,6 +108,18 @@ workflows:
             - test
           context:
             - pip-test
+      - pip-publish:
+          name: pip-publish-pypi
+          repository: pypi
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
+          requires:
+            - test
+          context:
+            - pip-live
       - build-gh-pages:
           filters:
             branches:
@@ -113,3 +128,13 @@ workflows:
           requires:
             - test
             - pip-publish-testpypi
+      - semantic-release/with-changelog-github-config:
+          name: semantic-release
+          filters:
+            branches:
+              only:
+                - main
+          requires:
+            - test
+          context:
+            - semantic-release
