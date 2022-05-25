@@ -93,7 +93,7 @@ class MailTrapHandler:
             if buffer_list is not None:
                 mails_ids_list = buffer_list
         except:
-            logging.warning(&#34;Something didn&#39;t work, probably didn&#39;T recieve any results&#34;)
+            logging.info(&#34;didn&#39;t recieve any results&#34;)
 
         # waiting for mail to come
         for mail_id in mails_ids_list:
@@ -206,7 +206,7 @@ class MailTrapHandler:
             if buffer_list is not None:
                 mails_ids_list = buffer_list
         except:
-            logging.warning(&#34;Something didn&#39;t work, probably didn&#39;T recieve any results&#34;)
+            logging.info(&#34;didn&#39;t recieve any results&#34;)
 
         # waiting for mail to come
         for mail_id in mails_ids_list:
@@ -331,7 +331,7 @@ class MailTrapHandler:
         if buffer_list is not None:
             mails_ids_list = buffer_list
     except:
-        logging.warning(&#34;Something didn&#39;t work, probably didn&#39;T recieve any results&#34;)
+        logging.info(&#34;didn&#39;t recieve any results&#34;)
 
     # waiting for mail to come
     for mail_id in mails_ids_list:
