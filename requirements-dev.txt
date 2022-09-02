@@ -1,4 +1,4 @@
 pdoc3==0.10.*
-setuptools==63.*
+setuptools==65.*
 twine==4.0.*
 wheel==0.37.*
