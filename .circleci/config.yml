@@ -80,7 +80,7 @@ jobs:
           command: |
             mkdir gh-pages
             pdoc3 mailtrap_handler -o gh-pages --html --force
-            echo '<meta http-equiv="refresh" content="0; URL=https://trustedshops-public.github.io/mailtrap-handler/mailtrap_handler/">' > gh-pages/index.html
+            echo '<meta http-equiv="refresh" content="0; URL=https://trustedshops-public.github.io/python-mailtrap-handler/mailtrap_handler/">' > gh-pages/index.html
 
       - run:
           name: Publish github pages

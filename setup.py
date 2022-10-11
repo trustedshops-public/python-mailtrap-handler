@@ -11,7 +11,7 @@ setup(
     name='mailtrap_handler',
     version=environ.get("VERSION", "snapshot"),
     author="Said Tahali (trusta)",
-    url="https://github.com/trustedshops-public/mailtrap-handler",
+    url="https://github.com/trustedshops-public/python-mailtrap-handler",
     include_package_data=True,
     packages=find_packages(),
     install_requires=requirements,

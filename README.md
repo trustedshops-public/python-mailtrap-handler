@@ -1,4 +1,4 @@
-# mailtrap-handler
+# python-mailtrap-handler
 [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/trustedshops-public/mailtrap-handler/blob/main/LICENSE)
 [![pre-commit](https://img.shields.io/badge/%E2%9A%93%20%20pre--commit-enabled-success)](https://pre-commit.com/)
 [![CircleCI](https://circleci.com/gh/trustedshops-public/mailtrap-handler/tree/main.svg?style=shield)](https://circleci.com/gh/trustedshops-public/mailtrap-handler/tree/main)
@@ -18,7 +18,7 @@ pip3 install mailtrap-handler
 
 ## Usage
 
-For [dedicated documentation click here](https://trustedshops-public.github.io/mailtrap-handler/mailtrap_handler)
+For [dedicated documentation click here](https://trustedshops-public.github.io/python-mailtrap-handler/mailtrap_handler)
 
 ```python
 from mailtrap_handler import MailTrapHandler
@@ -88,8 +88,8 @@ mailtrap.clean_inbox(inbox)
 
 ## How to Contribute
 
-We welcome [issues](https://github.com/trustedshops-public/mailtrap-handler/issues) to
-and [pull requests](https://github.com/trustedshops-public/mailtrap-handler/pulls) against this repository!
+We welcome [issues](https://github.com/trustedshops-public/python-mailtrap-handler/issues) to
+and [pull requests](https://github.com/trustedshops-public/python-mailtrap-handler/pulls) against this repository!
 
 ### Commit Message Convention
 
