@@ -1,3 +1,10 @@
+## [0.1.1](https://github.com/trustedshops-public/python-mailtrap-handler/compare/0.1.0...0.1.1) (2022-10-11)
+
+
+### Bug Fixes
+
+* Rename repository to match convention ([9a73556](https://github.com/trustedshops-public/python-mailtrap-handler/commit/9a73556901fbba5215c0ede1380456bbd73cd5d8))
+
 # [0.1.0](https://github.com/trustedshops-public/mailtrap-handler/compare/0.0.1...0.1.0) (2021-11-15)
 
 
