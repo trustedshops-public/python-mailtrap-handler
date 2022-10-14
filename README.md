@@ -3,6 +3,9 @@
 [![pre-commit](https://img.shields.io/badge/%E2%9A%93%20%20pre--commit-enabled-success)](https://pre-commit.com/)
 [![CircleCI](https://circleci.com/gh/trustedshops-public/python-mailtrap-handler/tree/main.svg?style=shield)](https://circleci.com/gh/trustedshops-public/mailtrap-handler/tree/main)
 [![PyPI version](https://badge.fury.io/py/mailtrap-handler.svg)](https://pypi.org/project/mailtrap-handler)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_python-mailtrap-handler&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_python-mailtrap-handler)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_python-mailtrap-handler&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_python-mailtrap-handler)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_python-mailtrap-handler&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_python-mailtrap-handler)
 
 Implementation for MailTrap basic functionalities using Python.
 
