@@ -32,6 +32,7 @@ from requests import get, patch, delete
 import json
 from polling import poll
 
+API_BASE_URL_V2 = &#34;https://mailtrap.io/api&#34;
 API_BASE_URL_V1 = &#34;https://mailtrap.io/api/v1&#34;
 
 
@@ -40,11 +41,11 @@ class MailTrapHandler:
     Utility for MailTrap API communication
     &#34;&#34;&#34;
 
-    def __init__(self, token, api_base_url=API_BASE_URL_V1):
+    def __init__(self, token, account_id, api_base_url=API_BASE_URL_V2):
         self.__headers = {
             &#34;Api-Token&#34;: token
         }
-        self.__base_url = api_base_url
+        self.__base_url = f&#34;{api_base_url}/accounts/{account_id}&#34;
 
     def get_mail_id(self, inbox, email, title=None):
         &#34;&#34;&#34;
@@ -115,7 +116,7 @@ class MailTrapHandler:
 
     def delete_mails_by_email(self, inbox, email, title=None):
         &#34;&#34;&#34;
-        Delete all mails from a inbox for a given mail address
+        Delete all mails from an inbox for a given mail address
 
         :param inbox: Name of the inbox
         :param email: Email address of the mailbox
@@ -140,7 +141,7 @@ class MailTrapHandler:
 <dl>
 <dt id="mailtrap_handler.MailTrapHandler.MailTrapHandler"><code class="flex name class">
 <span>class <span class="ident">MailTrapHandler</span></span>
-<span>(</span><span>token, api_base_url='https://mailtrap.io/api/v1')</span>
+<span>(</span><span>token, account_id, api_base_url='https://mailtrap.io/api')</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Utility for MailTrap API communication</p></div>
@@ -153,11 +154,11 @@ class MailTrapHandler:
     Utility for MailTrap API communication
     &#34;&#34;&#34;
 
-    def __init__(self, token, api_base_url=API_BASE_URL_V1):
+    def __init__(self, token, account_id, api_base_url=API_BASE_URL_V2):
         self.__headers = {
             &#34;Api-Token&#34;: token
         }
-        self.__base_url = api_base_url
+        self.__base_url = f&#34;{api_base_url}/accounts/{account_id}&#34;
 
     def get_mail_id(self, inbox, email, title=None):
         &#34;&#34;&#34;
@@ -228,7 +229,7 @@ class MailTrapHandler:
 
     def delete_mails_by_email(self, inbox, email, title=None):
         &#34;&#34;&#34;
-        Delete all mails from a inbox for a given mail address
+        Delete all mails from an inbox for a given mail address
 
         :param inbox: Name of the inbox
         :param email: Email address of the mailbox
@@ -269,7 +270,7 @@ class MailTrapHandler:
 <span>def <span class="ident">delete_mails_by_email</span></span>(<span>self, inbox, email, title=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Delete all mails from a inbox for a given mail address</p>
+<div class="desc"><p>Delete all mails from an inbox for a given mail address</p>
 <p>:param inbox: Name of the inbox
 :param email: Email address of the mailbox
 :param title: Filter for mail title, if not specified will affect all mails
@@ -280,7 +281,7 @@ class MailTrapHandler:
 </summary>
 <pre><code class="python">def delete_mails_by_email(self, inbox, email, title=None):
     &#34;&#34;&#34;
-    Delete all mails from a inbox for a given mail address
+    Delete all mails from an inbox for a given mail address
 
     :param inbox: Name of the inbox
     :param email: Email address of the mailbox
