@@ -26,7 +26,7 @@ For [dedicated documentation click here](https://trustedshops-public.github.io/p
 ```python
 from mailtrap_handler import MailTrapHandler
 
-mailtrap = MailTrapHandler(TOKEN)
+mailtrap = MailTrapHandler(TOKEN, ACCOUNT_ID)
 # then do what you need with the mailtrap object
 ```
 
@@ -69,12 +69,13 @@ from mailtrap_handler import MailTrapHandler
 
 # requirements
 token = "123wellthiswouldbeyourtokenhere098"
+account_id = 987654
 inbox = 12349876  # this is your mailtrap inbox id
 email = "target_email+probably_with_some_alias@inbox.mailtrap.io"
 title = "Oy! Congrats on getting Your new T-shirt"
 
 # creating mailtraphandler object
-mailtrap = MailTrapHandler(token)
+mailtrap = MailTrapHandler(token, account_id)
 
 # getting the html content
 mails = mailtrap.get_mail(inbox, email, title=title, 10)
