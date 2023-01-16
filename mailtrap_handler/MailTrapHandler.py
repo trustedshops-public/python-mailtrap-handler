@@ -4,6 +4,7 @@ from requests import get, patch, delete
 import json
 from polling import poll
 
+API_BASE_URL_V2 = "https://mailtrap.io/api"
 API_BASE_URL_V1 = "https://mailtrap.io/api/v1"
 
 
@@ -12,11 +13,11 @@ class MailTrapHandler:
     Utility for MailTrap API communication
     """
 
-    def __init__(self, token, api_base_url=API_BASE_URL_V1):
+    def __init__(self, token, account_id, api_base_url=API_BASE_URL_V2):
         self.__headers = {
             "Api-Token": token
         }
-        self.__base_url = api_base_url
+        self.__base_url = f"{api_base_url}/accounts/{account_id}"
 
     def get_mail_id(self, inbox, email, title=None):
         """
@@ -87,7 +88,7 @@ class MailTrapHandler:
 
     def delete_mails_by_email(self, inbox, email, title=None):
         """
-        Delete all mails from a inbox for a given mail address
+        Delete all mails from an inbox for a given mail address
 
         :param inbox: Name of the inbox
         :param email: Email address of the mailbox
