@@ -58,9 +58,6 @@ jobs:
   build-gh-pages:
     executor: node
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "6d:da:19:0e:d3:af:29:a8:9e:98:3c:ac:2b:31:f5:04"
       - checkout
       - run:
           name: Install python
@@ -87,7 +84,7 @@ jobs:
           command: |
             git config user.email "no-reply@trustedshops.com"
             git config user.name "trustedshops-public-cns-bot"
-            npx gh-pages@2.0.1 --dist gh-pages/ --message "docs: Update github pages [ci skip]"
+            npx gh-pages@2.0.1 --dist gh-pages/ --message "docs: Update github pages [ci skip]" --repo "https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git"
 
 workflows:
   version: 2
@@ -121,6 +118,8 @@ workflows:
           context:
             - pip-live
       - build-gh-pages:
+          context:
+            - semantic-release
           filters:
             branches:
               only:
