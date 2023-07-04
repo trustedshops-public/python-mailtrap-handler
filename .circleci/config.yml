@@ -10,8 +10,7 @@ executors:
       - image: cimg/python:3.11.4
   node:
     docker:
-      - image: cimg/node:lts
-
+      - image: cimg/python:3.11.4-node
 
 jobs:
   test:
