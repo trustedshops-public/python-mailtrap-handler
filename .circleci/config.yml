@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   semantic-release: trustedshops-public/semantic-release@5.1.1
-  github-utils: trustedshops-public/github-utils@1.1.0
+  github-utils: trustedshops-public/github-utils@1.1.1
 
 executors:
   python:
