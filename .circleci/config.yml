@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   semantic-release: trustedshops-public/semantic-release@5.1.1
+  github-utils: trustedshops-public/github-utils@1.1.0
 
 executors:
   python:
@@ -79,12 +80,10 @@ jobs:
             pdoc3 mailtrap_handler -o gh-pages --html --force
             echo '<meta http-equiv="refresh" content="0; URL=https://trustedshops-public.github.io/python-mailtrap-handler/mailtrap_handler/">' > gh-pages/index.html
 
-      - run:
-          name: Publish github pages
-          command: |
-            git config user.email "no-reply@trustedshops.com"
-            git config user.name "trustedshops-public-cns-bot"
-            npx gh-pages@2.0.1 --dist gh-pages/ --message "docs: Update github pages [ci skip]" --repo "https://token:${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git"
+      - github-utils/publish_github_pages:
+          folder: gh-pages/
+          git_commit_author_email: "no-reply@trustedshops.com"
+          git_commit_author_name: "trustedshops-public-cns-bot"
 
 workflows:
   version: 2
