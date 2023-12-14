@@ -13,11 +13,11 @@ class MailTrapHandler:
     Utility for MailTrap API communication
     """
 
-    def __init__(self, token, account_id, api_base_url=API_BASE_URL_V2):
+    def __init__(self, token, account_id):
         self.__headers = {
             "Api-Token": token
         }
-        self.__base_url = f"{api_base_url}/accounts/{account_id}"
+        self.__base_url = f"{API_BASE_URL_V2}/accounts/{account_id}"
 
     def get_mail_id(self, inbox, email, title=None):
         """
