@@ -41,11 +41,11 @@ class MailTrapHandler:
     Utility for MailTrap API communication
     &#34;&#34;&#34;
 
-    def __init__(self, token, account_id, api_base_url=API_BASE_URL_V2):
+    def __init__(self, token, account_id):
         self.__headers = {
             &#34;Api-Token&#34;: token
         }
-        self.__base_url = f&#34;{api_base_url}/accounts/{account_id}&#34;
+        self.__base_url = f&#34;{API_BASE_URL_V2}/accounts/{account_id}&#34;
 
     def get_mail_id(self, inbox, email, title=None):
         &#34;&#34;&#34;
@@ -141,7 +141,7 @@ class MailTrapHandler:
 <dl>
 <dt id="mailtrap_handler.MailTrapHandler.MailTrapHandler"><code class="flex name class">
 <span>class <span class="ident">MailTrapHandler</span></span>
-<span>(</span><span>token, account_id, api_base_url='https://mailtrap.io/api')</span>
+<span>(</span><span>token, account_id)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Utility for MailTrap API communication</p></div>
@@ -154,11 +154,11 @@ class MailTrapHandler:
     Utility for MailTrap API communication
     &#34;&#34;&#34;
 
-    def __init__(self, token, account_id, api_base_url=API_BASE_URL_V2):
+    def __init__(self, token, account_id):
         self.__headers = {
             &#34;Api-Token&#34;: token
         }
-        self.__base_url = f&#34;{api_base_url}/accounts/{account_id}&#34;
+        self.__base_url = f&#34;{API_BASE_URL_V2}/accounts/{account_id}&#34;
 
     def get_mail_id(self, inbox, email, title=None):
         &#34;&#34;&#34;
