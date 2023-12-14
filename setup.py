@@ -9,7 +9,7 @@ with open("README.md", "r") as readme_file:
 
 setup(
     name='mailtrap_handler',
-    version=environ.get("VERSION", "snapshot"),
+    version=environ.get("VERSION", "0.0.0.dev0"),
     author="Said Tahali (trusta)",
     url="https://github.com/trustedshops-public/python-mailtrap-handler",
     include_package_data=True,
