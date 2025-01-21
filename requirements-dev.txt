@@ -1,4 +1,4 @@
 pdoc3==0.10.*
 setuptools==68.*
-twine==4.0.*
+twine==6.1.*
 wheel==0.41.*
